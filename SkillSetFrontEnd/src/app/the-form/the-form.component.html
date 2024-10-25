@@ -1,7 +1,13 @@
 <form [formGroup]="postFilterForm" (submit)="getPosts()">
     <div class="input-wrapper">
         <label for="tags">Tags</label>
-        <input type="text" id="tags" formControlName="tags">
+        <input required type="text" id="tags" formControlName="tags">
+        @if (
+            postFilterForm.controls['tags'].errors?.['required']
+        ) {
+            <small> tags parameter is required </small>
+        }
+        
     </div>  
     <div class="input-wrapper">
         <label for="sort-by">Sort By</label>

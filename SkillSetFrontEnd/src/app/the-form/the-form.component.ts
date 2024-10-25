@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { PostService } from '../post-service.service';
 
 @Component({
@@ -15,11 +15,24 @@ export class TheFormComponent {
   postService: PostService = inject(PostService);
   sortByOptions: Array<string> = ["Id", "Reads", "Likes", "Popularity"];
   sortDircOptions: Array<string> = ["Asc", "Desc", ""];
+
+   sortByValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const forbidden = !this.sortByOptions.includes(control.value);
+      return forbidden ? {forbiddenName: {value: control.value}} : null;
+    };
+  }
   
+  sortDirectionValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const forbidden = !this.sortByOptions.includes(control.value);
+      return forbidden ? {forbiddenName: {value: control.value}} : null;
+    };
+  }
   postFilterForm = new FormGroup({
-    tags: new FormControl(''),
-    sortBy: new FormControl(null),
-    sortDirection: new FormControl(null)
+    tags: new FormControl('', [Validators.required]),
+    sortBy: new FormControl(null, [this.sortByValidator()]),
+    sortDirection: new FormControl(null, [this.sortDirectionValidator()])
   });
 
   getPosts(){
