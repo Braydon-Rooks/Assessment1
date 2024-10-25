@@ -17,11 +17,12 @@ export class TheFormComponent {
   sortDircOptions: Array<string> = ["Asc", "Desc", ""];
   
   postFilterForm = new FormGroup({
-    sortBy: new FormControl(''),
-    sortDirection: new FormControl(''),
+    tags: new FormControl(''),
+    sortBy: new FormControl(null),
+    sortDirection: new FormControl(null)
   });
 
   getPosts(){
-    this.postService.getResults(this.postFilterForm.value.sortBy ?? '', this.postFilterForm.value.sortDirection ?? '')
+    this.postService.getResults(this.postFilterForm.value.tags ?? '', this.postFilterForm.value.sortBy ?? 'id', this.postFilterForm.value.sortDirection ?? 'asc')
   }
 }

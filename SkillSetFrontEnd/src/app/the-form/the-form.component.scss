@@ -1,3 +1,15 @@
-.field-wrapper {
-    padding-right: 5px;
+.input-wrapper {
+    margin-bottom: 5px;
+
+    > label {
+        margin-right: 2px;
+    }
+}
+
+form {
+    margin-bottom: 10px;
+}
+
+hr {
+    margin-bottom: 10px;
 }

@@ -1,4 +1,12 @@
 <div>
+    @if (postService.errors.length > 0) {
+        <ul>
+            @for (error of postService.errors; track $index) {
+                <li>{{error.toString()}}</li>
+            }
+        </ul>
+    }
+    
     @for (item of postService.posts; track $index) {
         <div class="result">
             <p>Id: {{item.id}}</p>

@@ -1,5 +1,9 @@
 <form [formGroup]="postFilterForm" (submit)="getPosts()">
     <div class="input-wrapper">
+        <label for="tags">Tags</label>
+        <input type="text" id="tags" formControlName="tags">
+    </div>  
+    <div class="input-wrapper">
         <label for="sort-by">Sort By</label>
         <select id="sort-by" formControlName="sortBy"  >
             @for (by of sortByOptions; track $index) {

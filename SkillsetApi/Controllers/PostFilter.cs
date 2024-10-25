@@ -7,8 +7,8 @@ namespace SkillsetApi.Controllers
         [Required]
         public string Tags { get; set; }
 
-        public string? SortBy { get; set; } = "id";
-        public string? Direction { get; set; } = "asc";
+        public string SortBy { get; set; } = "id";
+        public string Direction { get; set; } = "asc";
 
         private readonly List<string> _acceptedFields = ["id", "reads", "likes", "popularity"];
         private readonly List<string> _acceptedDirections = ["asc", "desc"];
