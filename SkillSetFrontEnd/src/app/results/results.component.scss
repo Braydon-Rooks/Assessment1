@@ -1,0 +1,10 @@
+.result {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    margin-bottom: 5px;
+    padding: auto;
+    > p {
+        padding: 0px 10px 0px 10px;
+    }
+}

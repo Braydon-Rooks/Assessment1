@@ -1,0 +1,21 @@
+<form [formGroup]="postFilterForm" (submit)="getPosts()">
+    <div class="input-wrapper">
+        <label for="sort-by">Sort By</label>
+        <select id="sort-by" formControlName="sortBy"  >
+            @for (by of sortByOptions; track $index) {
+                <option [value]="by" >{{ by }}</option>
+            }
+        </select> 
+    </div>  
+    
+    <div class="input-wrapper">
+        <label for="sort-dirc">Sort Direction</label>
+        <select id="sort-dirc" formControlName="sortDirection"  >
+            @for (dirc of sortDircOptions; track $index) {
+                <option [value]="dirc" >{{ dirc }}</option>
+            }
+        </select> 
+    </div>
+    
+    <button type="submit" class="primary">Get Results</button>
+</form>

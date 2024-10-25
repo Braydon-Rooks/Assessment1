@@ -1,0 +1,19 @@
+<div>
+    @for (item of postService.posts; track $index) {
+        <div class="result">
+            <p>Id: {{item.id}}</p>
+            <p>Author: {{item.author}}</p>
+            <p>Author Id: {{item.authorId}}</p>
+            <p>Likes: {{item.likes}}</p>
+            <p>Popularity: {{item.popularity}}</p>
+            <p>Reads: {{item.reads}}</p>
+            <p>Tags:</p>
+            <ul>
+                @for (tag of item.tags; track $index) {
+                    <li>{{tag}}</li>
+                }
+            </ul>
+        </div>
+    }
+    <hr>
+</div>
